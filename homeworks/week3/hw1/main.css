@@ -44,7 +44,8 @@ html, body {
     background-color: rgb(235, 235, 235);
 }
 .container {
-    width: 66%;
+    padding: 0 20px;
+    max-width: 960px;
     margin: 0 auto;
 }
 .header__title {
@@ -82,8 +83,9 @@ html, body {
 }
 .section__block--block {
     display: inline-block;
-    width: calc(100% / 3 - 6px)
+    width: calc(100% / 3 - 6px);
 }
+
 .block__content {
     margin-bottom: 10px;
 }
@@ -96,7 +98,15 @@ html, body {
     color: white;
 }
 .footer {
-    width: 66%;
+    padding: 0 20px;
+    max-width: 960px;
     margin: 0 auto;
     margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+    .section__block--block {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
