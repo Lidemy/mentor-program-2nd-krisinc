@@ -73,17 +73,15 @@ html, body {
 .section__blocks {
     margin-top: 60px;
 }
-.section__block--blocks {
-    padding-bottom: 50px;
-    border-bottom: 1px solid #eeeeee;
+.row {
+    display: flex;
 }
 .block__title {
     font-size: 30px;
     margin-bottom: 20px;
 }
-.section__block--block {
-    display: inline-block;
-    width: calc(100% / 3 - 6px);
+.col ~ .col {
+    margin-left: 10px;
 }
 
 .block__content {
@@ -98,15 +96,19 @@ html, body {
     color: white;
 }
 .footer {
-    padding: 0 20px;
+    padding-top: 20px;
     max-width: 960px;
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
 }
 
-@media (max-width: 760px) {
-    .section__block--block {
-        width: 100%;
-        margin-bottom: 15px;
+@media screen and (max-width: 760px) {
+    .row {
+        flex-wrap: wrap;
+    }
+    .col:not(:first-child) {
+        margin-left: 0;
     }
 }
