@@ -1,45 +1,48 @@
-let clientId = 'b3on0e2e4uood1xbbprf9v8tpfiup9'
-let gameName = 'League%20of%20Legends'
+const clientId = 'b3on0e2e4uood1xbbprf9v8tpfiup9'
+const gameName = 'League%20of%20Legends'
 const apiUrl = `https://api.twitch.tv/kraken/streams?game=${gameName}&limit=20&client_id=${clientId}`
 
-// let xhr = new XMLHttpRequest();
-// xhr.open('get', apiUrl, true)
-// xhr.send()
+document.addEventListener('DOMContentLoaded', ()=>{
+    getStreams((res) => {
+        const streams = res.streams
+        const row = document.querySelector('.row')
+        for( let stream of streams) {
+            row.insertAdjacentHTML('afterbegin', renderStreams(stream))
+        }
+    })
+})
 
-// xhr.onreadystatechange = function(cb) {
-//     if(this.readyState === 4 && this.status === 200) {
-//         var data = JSON.parse(this.responseText)
-//         console.log(data)
-//         cb(null, data)
+function getStreams(cb) {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', apiUrl, true)
+    xhr.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
+
+    xhr.onload = () => {
+        if(xhr.status >= 200 && xhr.status < 400) {
+            res = JSON.parse(xhr.responseText)
+            cb(res)
+        }
+    }
+    xhr.send()
+}
+
+// async function getData(cb) {
+//     try{
+//         const res = await axios(apiUrl)
+//         cb(null, res)
+//     }catch (err) {
+//         console.log('something went wrong!')
 //     }
 // }
-
-// getData((err, data) => {
-//     const streams = data.streams
-
+// getData((err, res) => {
+//     const streams = res.data.streams
+//     console.log(streams)
 //     const row = document.querySelector('.row')
-//     for( let stream of streams) {
-//         row.append(getColumn(stream))
+//     for(let stream of streams) {
+//         row.insertAdjacentHTML('afterbegin',renderStreams(stream))
 //     }
 // })
-
-
-async function getData(cb) {
-    try{
-        const res = await axios(apiUrl)
-        cb(null, res)
-    }catch (err) {
-        console.log('something went wrong!')
-    }
-}
-getData((err, res) => {
-    const streams = res.data.streams
-    console.log(streams)
-    const row = document.querySelector('.row')
-    for(let stream of streams) {
-        row.insertAdjacentHTML('afterbegin',renderStreams(stream))
-    }
-})
 
 function renderStreams(data) {
     return `
@@ -56,3 +59,4 @@ function renderStreams(data) {
 
     `
 }
+
