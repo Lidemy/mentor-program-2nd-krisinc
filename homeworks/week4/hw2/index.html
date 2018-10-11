@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>程式導師實驗計畫第二期報名表單</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header"></div>
+        <form class="form">
+            <div class="block title">
+                <div class="title__title">程式導師實驗計畫第二期報名表單</div>
+                <br>
+                <div class="info">詳情請參考：<a href="https://medium.com/hulis-blog/mentor-program-s2-f876c4e13d3b">https://medium.com/hulis-blog/mentor-program-s2-f876c4e13d3b</a>
+                <br>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔
+                </div>
+                <div class="red title__span">*必填</div>
+            </div>
+            <div class="block">
+                <label for="email" class="subtitle">電子郵件地址<span class="red">*</span></label>
+                <br>
+                <input id="email" class="input" type="email" placeholder="你的電子郵件">
+            </div>
+            <div class="block">
+                <label for="nickname" class="subtitle">暱稱<span class="red">*</span></label>
+                <div class="info">該如何稱呼你</div>
+                <input id="nickname" class="input" type="text" placeholder="您的回答">
+            </div>
+            <div class="block">
+                <label class="subtitle">報名類型<span class="red">*</span></label>
+                <br>
+                <input type="radio" name="type" id="radio1" value="type1">
+                <label for="type">從零到一基礎班（一個月後開始收保證金 3000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付）</label>
+                <br>
+                <input type="radio" name="type" id="radio2" value="type2">
+                <label for="type">在職工程師加強班（一個月後開始收保證金 3000，兩個月時收學費 30000，被淘汰不退還）</label>
+            </div>
+            <div class="block">
+                <label for="job">現在的職業<span class="red">*</span></label>
+                <br>
+                <div class="info">範例：學生、前端工程師、待業中、業務</div>
+                <br>
+                <input id="job" class="input" type="text" placeholder="您的回答">
+            </div>
+            <div class="block">
+                <label for="learned">是否有程式相關背景？<span class="red">*</span></label>
+                <div class="info">範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...</div>
+                <input id="learned" class="input" type="text" placeholder="您的回答">
+            </div>
+            <div class="block other">
+                <label for="other" class="subtitle">其他</label>
+                <br>
+                <input class="input" type="text" placeholder="您的回答">
+            </div>
+            <div class="block">
+                <input id="submit" type="submit" />
+            </div>
+        </form>
+    </div>
+    <script src="./main.css"></script>
+</body>
+</html>
