@@ -6,15 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>hw4</title>
 </head>
+<style>
+    .box {
+        height: 100px;
+        width: 100px;
+        background-color: #333333;
+
+    }
+</style>
 <body>
+    <div class="box"></div>
+
     <script type="text/javascript">
         function q(selector) {
             const target = document.querySelector(selector)
             return {
-                hide: () => target.style.display = 'none',
-                show: () => target.style.display = 'block'
+                hide: () => target.style.visibility = 'hidden',
+                show: () => target.style.visibility = 'visible'
             }
         }
+        
+        let element = q('.box')
+
     </script>
 </body>
 </html>
