@@ -1,0 +1,39 @@
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 400px;
+    border: 1px solid #eee;
+    margin: 100px auto;
+}
+.result {
+    margin: 7px;
+    border: 1px solid #eee;
+    font-size: 40px;
+    text-align: right;
+}
+.bottom {
+    margin: 0px 7px 7px 7px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.btn {
+    border: 1px solid #eee;
+    width: 90px;
+    padding: 8px 0;
+    cursor: pointer;
+    text-align: center;
+}
+.row:last-child > .btn:last-child {
+    width: calc(100% / 2 - 2.5px);
+    background-color: rgb(253, 135, 71);
+}
+.number0 {
+    width: calc(100% / 2 - 2.5px);
+}

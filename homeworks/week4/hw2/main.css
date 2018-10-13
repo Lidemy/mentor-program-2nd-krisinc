@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(250, 208, 215);
+}
+
+.block {
+    padding: 20px;
+    transition: .2s;
+}
+.subtitle {
+    font-size: 20px;
+}
+.info {
+    font-size: 13px;
+    line-height: 27px;
+}
+.red {
+    color: rgb(207, 7, 7);
+}
+.input {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+
+    margin-top: 10px;
+    padding: 5px;
+    padding-left: 0;
+    font-size: 15px;
+    transition: .2s;
+}
+.input:focus {
+    border-bottom: 2px solid rgb(207, 7, 7);
+}
+
+/* 必選未答 */
+.input--need {
+    border-bottom: 2px solid rgb(207, 7, 7);    
+}
+.invalid {
+    background-color: rgba(255, 192, 192, 0.619);
+}
+
+.header {
+    background-color: rgb(238, 205, 114);
+    height: 290px;
+    width: 100%;
+    z-index: -1000;
+}
+.form {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-top: 5px solid rgb(245, 145, 109);
+    max-width: 600px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.37);
+    z-index: 50;
+}
+.title__title {
+    font-size: 35px;
+}
+.title__span {
+    font-size: 13px;
+    padding-top: 20px;
+}
+#submit {
+    border: none;
+    font-size: 15px;
+    padding: 7px 25px;
+    background-color: rgb(70, 175, 255);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
