@@ -38,7 +38,7 @@ $(document).ready(function() {
                 $('.comments').prepend(`
                     <div class="comment">
                         <div class="comment__top">
-                            <div class="comment__author">作者：${res.nickname}</div>
+                            <div class="comment__author">作者：${escapeHtml(res.nickname)}</div>
                     
                             <div class='functional'>
                                 <div class='delete-comment btn dele__btn' data-id='${res.id}'>X</div>
@@ -51,7 +51,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="comment__time">發言時間：${res.created_at}</div>
-                        <div class="comment__content">${content}</div>
+                        <div class="comment__content">${escapeHtml(content)}</div>
                         <div class="sub-comments">
                             <div class="add-sub-comment">
                                 <form action="./add_comment.php" method="POST">
@@ -76,7 +76,7 @@ $(document).ready(function() {
                 $('.sub-comments').prepend(`
                     <div class="sub-comment">
                         <div class="sub-comment__top">
-                            <div class="sub-comment__author">作者：${res.nickname}</div>
+                            <div class="sub-comment__author">作者：${escapeHtml(res.nickname)}</div>
 
                             <div class="functional">
                                 <div class='delete-comment btn dele__btn--sub' data-id='$id'>X</div>
@@ -89,7 +89,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="sub-comment__time">發言時間：${res.created_at}</div>
-                        <div class="sub-comment__content">${content}</div>
+                        <div class="sub-comment__content">${escapeHtml(content)}</div>
                     </div>
                 `)
             }
@@ -98,3 +98,11 @@ $(document).ready(function() {
         })
     })
 })
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
