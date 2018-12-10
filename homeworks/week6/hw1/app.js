@@ -10,11 +10,11 @@ $(document).ready(function() {
             }
         }).done(function(response) {
             const msg = JSON.parse(response)
-            const comment = $(e.target).parent().parent().parent()
-            if(comment.length === 0) {
-                comment.hide(200)            
+            const subComment = $(e.target).closest('.sub-comment')
+            if(subComment.length === 0) {
+                $(e.target).closest('.comment').hide(200)            
             } else {
-                comment.hide(200)
+                subComment.hide(200)
             }
         }).fail(function() {
             alert('delete fail!')
