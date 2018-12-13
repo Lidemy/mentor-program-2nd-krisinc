@@ -20,7 +20,7 @@ $(document).ready(function() {
             alert('delete fail!')
         })
     })
-    $('form').submit(function(e) {
+    $('.container').on('submit', 'form[name="add_comment"]', function(e) {
         e.preventDefault();
         const content = $(e.target).find('textarea[name=content]').val()
         const parentId = $(e.target).find('input[name=parent_id]').val()
@@ -54,7 +54,7 @@ $(document).ready(function() {
                         <div class="comment__content">${escapeHtml(content)}</div>
                         <div class="sub-comments">
                             <div class="add-sub-comment">
-                                <form action="./add_comment.php" method="POST">
+                                <form name="add_comment" action="./add_comment.php" method="POST">
                                     <div class="form__row">
                                         <h3>新增留言</h3>
                                     </div>
@@ -71,9 +71,8 @@ $(document).ready(function() {
                         </div>
                     </div>
                 `)
-            }
-            if(res.result === 'sub success') {
-                $('.sub-comments').prepend(`
+            } else if(res.result === 'sub success') {
+                $(e.target).closest('.sub-comments').prepend(`
                     <div class="sub-comment">
                         <div class="sub-comment__top">
                             <div class="sub-comment__author">作者：${escapeHtml(res.nickname)}</div>
