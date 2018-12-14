@@ -15,13 +15,10 @@
         $stmt->bind_param('ssi', $user, $content, $parent_id);
 
         if($stmt->execute()) {
-            $sql = "SELECT c.id, c.content, c.username, c.created_at, c.parent_id, u.nickname 
-            from krisinc_comments as c 
-            LEFT JOIN krisinc_users as u ON c.username = u.username 
-            WHERE c.parent_id = 0 
-            ORDER BY created_at DESC
-            ";
+            $last_id = $conn->insert_id;
+            $sql = "SELECT * from krisinc_comments as c LEFT JOIN krisinc_users as u ON c.username = u.username WHERE c.id = ? ";
             $stmtAjax = $conn->prepare($sql);
+            $stmtAjax->bind_param('i', $last_id);
             $is_success = $stmtAjax->execute();
             $result = $stmtAjax->get_result();
             if($is_success) {
@@ -31,7 +28,7 @@
                         'result' => 'success',
                         'nickname' => $row['nickname'],
                         'created_at' => $row['created_at'],
-                        'id' => $row['id']
+                        'id' => $last_id
                     ));
                 }else {
                     $row = $result->fetch_assoc();
@@ -39,7 +36,7 @@
                         'result' => 'sub success',
                         'nickname' => $row['nickname'],
                         'created_at' => $row['created_at'],
-                        'id' => $row['id'],
+                        'id' => $last_id,
                         'parent_id' => $row['parent_id']
                     ));
                 }

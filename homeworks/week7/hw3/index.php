@@ -44,7 +44,7 @@
         $result = $stmt->get_result();
     ?>
     <div class="container">
-        <form class="form" action="./add_comment.php" method="POST">
+        <form name="add_comment" class="form" action="./add_comment.php" method="POST">
             <div class="form__row">
                 <h2>新增留言</h2>
             </div>
@@ -136,7 +136,7 @@
                         }
                     ?>
                     <div class="add-sub-comment">
-                        <form action="./add_comment.php" method="POST">
+                        <form name="add_comment" action="./add_comment.php" method="POST">
                             <div class="form__row">
                                 <h3>新增留言</h3>
                             </div>
