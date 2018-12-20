@@ -12,9 +12,12 @@
     $conn->begin_transaction();
 
     for($i=0; $i<count($ids);$i++) {
-        $result = $conn->query("SELECT amount FROM products WHERE id = $ids[$i] for UPDATE");
-        if($result->num_rows>0) {
-            while($row = $result->fetch_assoc()) {    
+        $stmt = $conn->prepare("SELECT amount FROM products WHERE id = ? for UPDATE");
+        $stmt->bind_param('i', $ids[$i]);
+        $is_success = $stmt->execute();
+        $result = $stmt->get_result();
+        if($is_success) {
+            while($row = $result->fetch_assoc()) {
                 if(count($greater) >= count($amounts)) {
                     $stmt_update = $conn->prepare("UPDATE products SET amount = amount - 1 WHERE id = $ids[$i]");
                     $stmt_update->execute();
