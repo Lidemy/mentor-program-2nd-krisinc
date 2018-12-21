@@ -1,0 +1,39 @@
+body{
+    background-color: #FCFAF9;
+    color: #333;
+}
+.header {
+    padding: 25px;
+    text-align: center;
+    background-color: #DEC0F1;
+    color: #FCFAF9;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+}
+
+.list-group {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.justify-content-between {
+    align-items: center;
+}
+.list-group-item {
+    transition: .4s;
+}
+.list-group-item:hover:not(:last-child) {
+    background-color: #7161EF;
+    color: #FCFAF9;
+}
+.item__price {
+    font-size: 20px;
+    color: rgb(190, 134, 224);
+}
+
+h5 {
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
